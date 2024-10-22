@@ -10,19 +10,25 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
-- Include `platform: esphome` in the `ota:` section of the example.yaml
-  file.
-- Include `ignore_efuse_custom_mac: true` in the `esp32:` section of the
-  core configuration package.\
+- Include `platform: esphome` in the `ota:` section of the example.yaml file.
+- Include `ignore_efuse_custom_mac: true` in the `esp32:` section of the core
+  configuration package, to make the configuration compatible with ESPHome
+  version 2024.10.0.\
   Thanks to Andy (ezcGman on GitHub) for the PR!
-- Include `friendly_name:` in the `esphome:` section of the core
-  configuration package, so that the set friendly name (as used in the
-  `example.yaml`) shows up in the ESPHome Dashboard and in Home Assistant.\
-  Thanks to Florian (fmauNeko on GitHub) for the PR!
 - Checked and formatted the Python code in the project using `ruff`.
 
 ### Changed
 
+- Include `friendly_name` in the `esphome:` section of the core
+  configuration package, so that the set friendly name (as used in the
+  `example.yaml`) shows up in the ESPHome Dashboard and in Home Assistant.\
+  Thanks to Florian (fmauNeko on GitHub) for the PR!
+- The `${friendly_name}` was removed from the default values for the
+  `light_name` and `light_mode_text_sensor_name` substitutions, because the
+  `esphome.friendly_name` is automatically used as a prefix for these.
+  If you have customized these substitutions, and are using the `${friendly_name}`
+  variable in them, you might want to remove this variable to prevent duplication
+  of the friendly name in the representation of the device in Home Assistant.
 - Added support for suppressing warnings about strapping pins by using the
   ESPHome pin configuration option `ignore_strapping_warning: true`.
   Previously, a temporary workaround was used because this configuration option
