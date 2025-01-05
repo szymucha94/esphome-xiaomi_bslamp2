@@ -4,9 +4,17 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [2024.10.0]
+## [2025.1.0]
 
 **Note**: This release requires ESPHome 2024.10.0 or newer.
+
+### Fixed
+
+- Minor change for preventing compilation warning:
+  `warning: '++' expression of 'volatile'-qualified type is deprecated`.
+  Thanks to Mirco (derMicro on GitHub) and Jos for reporting the issue.
+
+## [2024.10.0]
 
 ### Fixed
 
